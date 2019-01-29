@@ -1,0 +1,53 @@
+{# specify absolute url for the static assets folder e.g. http://wwww.domain.com/assets #}
+{%- set assetUrl = assetUrl | default(assetPath) -%}
+<!doctype html>
+<html lang="{{ htmlLang | default('en') }}" class="{{ htmlClasses }}">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="HandheldFriendly" content="true">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+
+  {% block headIcons %}
+  {% endblock %}
+
+  {% block head %}
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylesheets/main-payment.css') }}"/>
+  <!--<![endif]-->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+        integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+  {% endblock %}
+
+  <title>{% block pageTitle %}{% block title %}{% endblock %}{{ service_name }}{%
+    endblock %}</title>
+</head>
+<body class="{{ bodyClasses }}">
+    {% block bodyStart %}
+    {% endblock %}
+
+    {% block skipLink %}
+    {% endblock %}
+
+    {% block header %}
+    {% endblock %}
+
+    {% block main %}
+    {% endblock %}
+
+    {% block footer %}
+    {% endblock %}
+
+    {% block bodyEnd %}
+      <!--[if gt IE 8]><!-->
+      <script src="{{ url_for('static', filename='javascripts/main-payment.js') }}"></script>
+      <!--<![endif]-->
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,5 @@
+assets/src/scss/vendor/govuk-elements
+
+# Commented out until such time as we have a build pipeline that can generate artifacts
+# assets/dist
+# templates/vendor/govuk_template.html

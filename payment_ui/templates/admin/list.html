@@ -1,0 +1,48 @@
+{% extends "app/theme/main.html" %}
+
+{% block content %}
+  <div class="m-auto pt-5 content-text">
+    <div class="col-lg-10 m-auto">
+      {% if request.args.get('error_message') %}
+        <div class="alert alert-danger">
+          {{ request.args.get('error_message') }}
+        </div>
+      {% endif %}
+      <h1>Alerts</h1>
+      <table class="table table-hover" id="tbl_list">
+        <tbody>
+        {% if buyer_details %}
+          <thead>
+          <tr>
+            <th scope="col">Buyer</th>
+            <th scope="col">Buyer conveyancer</th>
+            <th scope="col">Status</th>
+          </tr>
+          </thead>
+          {% for buyer in buyer_details %}
+            <tr>
+              <td scope="row">{{ buyer['buyer']['first_name'] }} {{ buyer['buyer']['last_name'] }}</td>
+              <td scope="row">
+                {{ buyer['conveyancer']['organisation'] }}
+              </td>
+              <td>
+                {% if buyer['status'] == "funds_received" %}
+                  <a href="{{ url_for('payment_admin.funds_received') }}">
+                    Funds received
+                  </a>
+                {% elif buyer['status'] == "funds_pending" %}
+                  Funds pending
+                {% endif %}
+              </td>
+            </tr>
+          {% endfor %}
+        {% else %}
+          <tr>
+            <td>No records to display</td>
+          </tr>
+        {% endif %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% endblock %}

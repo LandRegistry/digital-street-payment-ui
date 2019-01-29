@@ -1,0 +1,42 @@
+{% extends "app/layout.html" %}
+
+{% block header %}
+  <nav class="navbar navbar-expand-lg fixed-top navbar-dark navbar">
+    <a class="navbar-brand" href="/"><img class="w-50" src="{{ url_for('static', filename='images/app/payment_logo.png') }}" > </a>
+  </nav>
+{% endblock %}
+
+{% block main %}
+  <div class="container-fluid mb-5">
+    <div class="row">
+       {% block sidebar %}
+        <nav class="col-md-2 d-none d-md-block sidebar" id="nav_sidebar">
+          <div class="sidebar-sticky">
+            <ul class="nav flex-column text-light">
+              <li class="nav-item">
+                <a class="nav-link active" href="#">
+                  Inbox
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link sidebar-current" href="#">
+                  Alerts {% if admin_notify and admin_notify > 0 %}<i class="fas fa-bell fa-fw fa-lg"></i>{% endif %}
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  Support
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      {% endblock %}
+      <main role="main" class="col-md-11 ml-sm-auto px-4">
+        {% block beforeContent %}
+        {% endblock %}
+        {% block content %}{% endblock %}
+      </main>
+    </div>
+  </div>
+{% endblock %}

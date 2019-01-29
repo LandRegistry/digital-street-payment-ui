@@ -1,0 +1,137 @@
+// App specific code
+
+@import 'bootstrap/scss/bootstrap';
+
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
+}
+
+/* unvisited link */
+#nav_sidebar > div > ul > li > a:link  {
+  color: #fff;
+}
+
+#nav_sidebar > div > ul > li  > a:visited {
+  color: #fff;
+}
+
+/* mouse over link */
+#nav_sidebar > div > ul > li  > a:hover {
+  background-color: #535f7a;
+}
+
+.sidebar-current {
+  background-color: #535f7a;
+}
+
+/* selected link */
+#nav_sidebar  li > a:active {
+  color: #fff;
+}
+
+html, body {
+  height: 100%;
+}
+
+.row-select{
+  background-color:#d2f4eb
+}
+
+#header_nav_item > li, #header_nav_item > li > a  {
+  color: #fff;
+}
+
+[role="main"] {
+  padding-top: 48px; /* Space for fixed navbar */
+}
+
+/* xs < 768 */
+@media screen and (max-width: 767px) {
+  h1 {
+      font-size: 7.5vw;
+  }
+
+  .h3 {
+      font-size: 5.5vw;
+  }
+}
+
+/* sm , md and lg*/
+@media screen and (min-width: 768px) {
+  h1 {
+      font-size: 3vw;
+  }
+  .h3 {
+      font-size: 2.25vw;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .small_font {
+      font-size: 3vw;
+  }
+}
+
+.container{
+  text-align:center;
+  color:#fff;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+.navbar,.button{
+  background-color: #1BA290;
+  color:#e8f8fa;
+  margin-bottom: 10px;
+}
+
+.content-text{
+  color:#003663
+}
+
+.colour-inherit{
+  color:inherit
+}
+
+.nounderline{
+  text-decoration: none !important
+}
+
+.w-15{
+  max-width:15%
+}
+
+.sidebar{
+position: fixed;  
+top: 0;
+bottom: 0;
+left: 0;
+z-index: 100; /* Behind the navbar */
+padding: 70px 0 0; /* Height of navbar */
+box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+background-color:#6240e8;
+}
+
+.sidebar-sticky {
+position: relative;
+top: 0;
+height: calc(100vh - 90px);
+padding-top: .5rem;
+overflow-x: hidden;
+overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+
+.font-120{
+font-size:1.20em;
+}
+
+.vertical-center {
+min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+min-height: 100vh; /* These two lines are counted as one        */
+display: flex;
+align-items: center;
+}
+
+.w-35{
+  max-width:35%
+}
