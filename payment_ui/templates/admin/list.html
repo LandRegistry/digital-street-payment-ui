@@ -27,7 +27,7 @@
               </td>
               <td>
                 {% if buyer['status'] == "funds_received" %}
-                  <a href="{{ url_for('payment_admin.funds_received') }}">
+                  <a href="{{ url_for('admin.funds_received') }}">
                     Funds received
                   </a>
                 {% elif buyer['status'] == "funds_pending" %}

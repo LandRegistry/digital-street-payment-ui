@@ -17,7 +17,7 @@
 
   {% block head %}
   <!--[if gt IE 8]><!-->
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylesheets/main-payment.css') }}"/>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylesheets/main.css') }}"/>
   <!--<![endif]-->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
         integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
@@ -46,7 +46,7 @@
 
     {% block bodyEnd %}
       <!--[if gt IE 8]><!-->
-      <script src="{{ url_for('static', filename='javascripts/main-payment.js') }}"></script>
+      <script src="{{ url_for('static', filename='javascripts/main.js') }}"></script>
       <!--<![endif]-->
     {% endblock %}
 </body>
