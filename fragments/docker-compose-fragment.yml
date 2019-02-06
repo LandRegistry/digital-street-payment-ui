@@ -4,6 +4,8 @@ services:
   payment-ui:
     container_name: payment-ui
     build: ./payment-ui
+    environment:
+      PAYMENT_API_URL: 'http://host.docker.internal:5001/api'
     restart: on-failure
     ports:
       # The base Flask Dockerfile tells gunicorn to use 8080 by default, we expose it here and map it to a unique

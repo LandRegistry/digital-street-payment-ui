@@ -47,3 +47,4 @@ CONTENT_SECURITY_POLICY_MODE = os.environ['CONTENT_SECURITY_POLICY_MODE']
 #   - Set far *future* expiry headers on static asset requests to force browsers to cache for a long time
 #   - Add cachebusters to static asset query strings to invalidate browsers' caches when necessary
 STATIC_ASSETS_MODE = os.environ['STATIC_ASSETS_MODE']
+PAYMENT_API_URL = os.environ['PAYMENT_API_URL']

@@ -3,15 +3,15 @@
 {% block content %}
   <div class="m-auto pt-5 content-text">
     <div class="col-lg-10 m-auto">
-      {% if request.args.get('error_message') %}
+      {% if error_message %}
         <div class="alert alert-danger">
-          {{ request.args.get('error_message') }}
+          {{ error_message }}
         </div>
       {% endif %}
       <h1>Alerts</h1>
       <table class="table table-hover" id="tbl_list">
         <tbody>
-        {% if buyer_details %}
+        {% if titles %}
           <thead>
           <tr>
             <th scope="col">Buyer</th>
@@ -19,19 +19,26 @@
             <th scope="col">Status</th>
           </tr>
           </thead>
-          {% for buyer in buyer_details %}
+          {% for title in titles %}
+            {% set status = title['states']['payment']%}
             <tr>
-              <td scope="row">{{ buyer['buyer']['first_name'] }} {{ buyer['buyer']['last_name'] }}</td>
+              <td scope="row">{{ title['sales_agreement']['buyer']['first_name']}}
+                {{ title['sales_agreement']['buyer']['last_name']}}
+              </td>
               <td scope="row">
-                {{ buyer['conveyancer']['organisation'] }}
+                {{ title['sales_agreement']['buyer_conveyancer']['organisation']}}
               </td>
               <td>
-                {% if buyer['status'] == "funds_received" %}
-                  <a href="{{ url_for('admin.funds_received') }}">
-                    Funds received
+                {% if status['state_status'] == 'confirm_payment_received_in_escrow' %}
+                  Funds received
+                {% elif status['state_status'] == 'request_for_payment' %}
+                  <a href="{{ url_for('payment_admin.funds_received',title_number=title['title_number']) }}">
+                    Confirm receipt of funds
                   </a>
-                {% elif buyer['status'] == "funds_pending" %}
+                {% elif status['state_status'] == 'issued' %}
                   Funds pending
+                {% elif status['state_status'] == 'confirm_funds_released' %}
+                  Title transfer complete
                 {% endif %}
               </td>
             </tr>
