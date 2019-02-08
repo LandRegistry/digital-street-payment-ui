@@ -1,9 +1,8 @@
 babel==2.6.0
-Flask-Compress==1.4.0
-Flask-LogConfig==0.4.2
-Flask-Script==2.0.6
-Flask==1.0.2
-requests==2.20.1
-Flask-WTF==0.14.2
-misaka==2.1.0
-deepmerge==0.0.4
+flask-compress==1.4.0
+flask-logconfig==0.4.2
+flask-script==2.0.6
+flask-wtf==0.14.2
+flask==1.0.2
+misaka==2.1.1
+requests==2.21.0

@@ -49,17 +49,9 @@ def unhandled_exception(e):
 
     http_code = 500
 
-    try:
-        # Negotiate based on the Accept header
-        if request_wants_json():
-            return jsonify({}), http_code
-        else:
-            return render_template('app/errors/unhandled.html',
-                                   http_code=http_code,
-                                   ), http_code
-    except Exception:
-        # Ultimate fallback handler, such as if jinja templates are missing
-        return 'Internal server error', 500
+    return jsonify({
+                    'error': str(e)
+                    }), http_code
 
 
 def http_exception(e):
@@ -72,13 +64,10 @@ def http_exception(e):
     else:
         http_code = 500
 
-    # Negotiate based on the Accept header
-    if request_wants_json():
-        return jsonify({}), http_code
-    else:
-        return render_template('app/errors/unhandled.html',
-                               http_code=http_code,
-                               ), http_code
+    return jsonify({
+                    'message': e.message,
+                    'code': e.code
+                    }), http_code
 
 
 def application_error(e):
@@ -104,25 +93,10 @@ def application_error(e):
     else:
         http_code = 500
 
-    if request_wants_json():
-        return jsonify({
-                       'message': e.message,
-                       'code': e.code
-                       }), http_code
-    else:
-        try:
-            return render_template('app/errors/application/{}.html'.format(e.code),
-                                   description=e.message,
-                                   code=e.code,
-                                   http_code=http_code,
-                                   e=e,
-                                   ), http_code
-        except TemplateNotFound:
-            return render_template('app/errors/application.html',
-                                   description=e.message,
-                                   code=e.code,
-                                   http_code=http_code
-                                   ), http_code
+    return jsonify({
+                    'message': e.message,
+                    'code': e.code
+                    }), http_code
 
 
 def register_exception_handlers(app):

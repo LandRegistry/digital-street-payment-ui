@@ -32,7 +32,7 @@
                 {% if status['state_status'] == 'confirm_payment_received_in_escrow' %}
                   Funds received
                 {% elif status['state_status'] == 'request_for_payment' %}
-                  <a href="{{ url_for('payment_admin.funds_received',title_number=title['title_number']) }}">
+                  <a href="{{ url_for('admin.funds_received',title_number=title['title_number']) }}">
                     Confirm receipt of funds
                   </a>
                 {% elif status['state_status'] == 'issued' %}
