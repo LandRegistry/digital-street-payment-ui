@@ -1,18 +1,19 @@
-from payment_ui.custom_extensions.wtforms_helpers.wtforms_widgets import (GovCheckboxesInput,
-                                                                                 GovCheckboxInput,
-                                                                                 GovFileInput,
-                                                                                 GovPasswordInput,
-                                                                                 GovRadioInput,
-                                                                                 GovSelect,
-                                                                                 GovSubmitInput,
-                                                                                 GovTextArea,
-                                                                                 GovTextInput)
 from flask_wtf import FlaskForm
 from wtforms.fields import (BooleanField, DecimalField, FileField, FloatField,
                             IntegerField, MultipleFileField, PasswordField,
                             RadioField, SelectField, SelectMultipleField,
                             StringField, SubmitField, TextAreaField)
 from wtforms.validators import Email, EqualTo, InputRequired, ValidationError
+
+from payment_ui.custom_extensions.wtforms_helpers.wtforms_widgets import (GovCheckboxesInput,
+                                                                          GovCheckboxInput,
+                                                                          GovFileInput,
+                                                                          GovPasswordInput,
+                                                                          GovRadioInput,
+                                                                          GovSelect,
+                                                                          GovSubmitInput,
+                                                                          GovTextArea,
+                                                                          GovTextInput)
 
 
 class ExampleForm(FlaskForm):

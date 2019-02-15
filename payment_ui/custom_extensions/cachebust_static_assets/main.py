@@ -1,8 +1,7 @@
-from flask import current_app
-from flask import url_for
 import hashlib
 import os
 
+from flask import current_app, url_for
 
 cache_busting_values = {}
 
@@ -49,7 +48,7 @@ def hashed_url_for(endpoint, **values):
     return url_for(endpoint, **values)
 
 
-def md5_for_file(path, block_size=256*128, hexdigest=False):
+def md5_for_file(path, block_size=256 * 128, hexdigest=False):
     """Calculate an md5 hash for a file
 
     Block size directly depends on the block size of your filesystem

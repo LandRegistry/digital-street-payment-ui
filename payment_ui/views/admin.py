@@ -1,6 +1,6 @@
-from flask import Blueprint, render_template, url_for, request, redirect, current_app, session
 import requests
-
+from flask import (Blueprint, current_app, redirect, render_template, request,
+                   url_for)
 
 # This is the blueprint object that gets registered into the app in blueprints.py.
 admin = Blueprint('admin', __name__)
@@ -11,7 +11,8 @@ def list():
     # fetch all titles
     try:
         # Fetch all cases of the conveyancer
-        titles = requests.get(current_app.config['PAYMENT_API_URL'] + '/titles', headers={'Accept': 'application/json'})
+        titles = requests.get(
+            current_app.config['PAYMENT_API_URL'] + '/titles', headers={'Accept': 'application/json'})
 
     except requests.exceptions.RequestException as e:
         return render_template('app/admin/list.html', error_message=str(e))

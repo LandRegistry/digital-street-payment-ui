@@ -1,6 +1,8 @@
 import unittest
+
 import yaml
 from flask import render_template_string
+
 from payment.main import app
 from unit_tests.fixtures.wtf_macros_example_form import ExampleForm
 
@@ -10,7 +12,8 @@ class FlaskWtfMacroTestBase(unittest.TestCase):
 
     Test the output of passing flask-wtf form elements
     through the custom govuk macros, ensuring we get
-    correctly formed responses."""
+    correctly formed responses.
+    """
 
     def setup_method(self, method):
         self.app = app.test_client()
